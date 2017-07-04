@@ -11,10 +11,10 @@ module.exports = function getHTML(options, callback=printHTML) {
   https.get(aRequestOptions, function(response) {
     response.setEncoding("utf8");
     response.on('data', function(data) {
-      // info.push(data);
       info += data;
     });
     response.on('end', function() {
+      console.log('Response stream complete.');
       callback(info);
     });
   });
